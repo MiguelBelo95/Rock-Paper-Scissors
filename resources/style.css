@@ -1,0 +1,140 @@
+/*Universal Style */
+
+html {
+	background-color: black;
+	color: white;
+	box-sizing: border-box;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.header {
+	text-align: center;
+	font-size: large;
+	font-family: "Sofia";
+}
+
+.result {
+	font-family: "Sofia";
+}
+
+button {
+	border: none;
+	cursor: pointer;
+	transition: 250ms ease-in-out, transform 150ms ease;
+	background-color: rgba(0,0,0,0);
+}
+
+button:hover {
+	background-color: #005300;
+	transform: scale(1.1);
+	box-shadow: 0 0 20px 1px;
+}
+
+button:active {
+    transform: scale(0.89);
+}
+
+/* Game area */
+
+.game {
+	display: flex;
+	width: 60%;
+	margin: auto;
+	justify-content: space-between;
+}
+
+
+.item {
+	border: 2px solid #cfcfcf;
+	padding: .25rem;
+}
+
+.item img{
+	width: 150px;
+}
+
+.title, .player-result, .computer-result {
+	font-size: 1.5rem;
+}
+
+/* RESULTS */
+
+.results {
+	display: flex;
+	width: 60%;
+	margin: auto;
+	justify-content: space-between;
+	margin-top: 1rem;
+	border: 1px solid white;
+}
+
+
+footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#anchor {
+	text-decoration: none;
+	color: white;
+}
+
+.result {
+	border: 2px solid greenyellow;
+}
+
+.anounce.round {
+	width: 60%;
+	margin: auto;
+	border: 1px solid grey;
+	margin-top: 2rem;
+}
+
+.result.box {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+}
+
+
+
+/* Disappear and animate */
+
+.disappear {
+	display: none;
+}
+
+#end-alert {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+#end-desc {
+  font-size: 50px;
+  margin-bottom: 25px;
+}
+#retry-btn {
+  display: inline-block;
+  padding: 0.8em 1.4em;
+  border-radius: 0.15em;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #646464;
+  background-color: rgb(245, 245, 245);
+  box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
+  position: relative;
+  margin-top: 25px;
+  opacity: 0;
+}
+#retry-btn:hover {
+  cursor: pointer;
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
