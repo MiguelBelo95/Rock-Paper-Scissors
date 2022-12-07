@@ -64,10 +64,9 @@ button:active {
 	width: 60%;
 	margin: auto;
 	justify-content: space-between;
-	margin-top: 1rem;
-	border: 1px solid white;
+	margin-top: 2rem;
+	border: 1px solid;
 }
-
 
 footer {
 	position: fixed;
@@ -83,15 +82,13 @@ footer {
 	color: white;
 }
 
-.result {
-	border: 2px solid greenyellow;
-}
+
 
 .anounce.round {
 	width: 60%;
 	margin: auto;
-	border: 1px solid grey;
 	margin-top: 2rem;
+	font-size: 1.25rem;
 }
 
 .result.box {
@@ -99,8 +96,15 @@ footer {
 	align-items: center;
 	justify-content: center;
 	gap: 1rem;
+	transition: all 0.1s;
+	margin: 0 0.5rem;
 }
 
+.playing {
+	transform: scale(1.1);
+	border-color: green;
+	box-shadow: 0 0 1rem green;
+}
 
 
 /* Disappear and animate */
