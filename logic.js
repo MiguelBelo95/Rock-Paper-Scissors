@@ -59,7 +59,6 @@ function compareResults(playerSelection, computerSelection) {
 	playerSelection = playerSelection.toLowerCase();
 	computerSelection = computerSelection.toLowerCase();
 	let resultMsg = undefined;
-	//const winner = checkWinner();
 
 	if (playerSelection == computerSelection) {
 	  resultMsg = `It's a draw. You chose ${playerSelection} and the computer also!`;
@@ -79,7 +78,6 @@ function compareResults(playerSelection, computerSelection) {
 	announceRound.textContent = resultMsg;
 	playerResult.textContent = userResult;
 	computerResult.textContent = cpuResult;
-	//if (winner) {endGame()};
 }
 
 function checkWinner() {return (userResult == 5 || cpuResult == 5);}
@@ -88,13 +86,11 @@ function endGame() {
 	if (userResult > cpuResult) {
 		endDesc.textContent = "Congratulations!! You won against the computer!!"
 		returnMainBtn.textContent = "Play again";
-		//const audio = new Audio());
-		//audio.play();
+		
 	} else {
 		endDesc.textContent="What a loser! You've lost against the computer";
 		returnMainBtn.textContent = "Try again?";
-		//const audio = new Audio('sounds/Sad-SoundBible.com-759843766.wav');
-		//audio.play();
+		
 	};
 }
 
@@ -110,7 +106,6 @@ function rplContent() {
 }
 
 function resetGame() {
-	console.log("Am I in!?")
 	userResult = 0;
 	cpuResult = 0;
 	playerResult.textContent = userResult;
