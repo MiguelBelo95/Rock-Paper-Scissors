@@ -20,7 +20,7 @@ const computerResultBorder = document.getElementById("result-computer-box");
 
 
 buttons.forEach(button => {
-	button.addEventListener('click', playRound)
+	button.addEventListener('click', playRound);
 });
 
 function getComputerChoice() {
@@ -38,25 +38,20 @@ function playRound() {
 
 	if (!winner) {
 		 compareResults(playerSelection, computerChoice);
-	} 
+	}
 	if (winner) {
+		console.log("I never enter here, it seems");
 		endGame();
 	}
 }
 
 function highlightBorder(border) {
-	console.log(`THis is the border ClassList: ${border.classList}`);
 	border.classList.add("playing");
-	console.log(`THis is the border ClassList: ${border.classList}`);
 	setTimeout(() => {removeTransition(border);}, 500);
 }
 
 function removeTransition(border) {
-	console.log("I'm in removeTransition function");
-	console.log(`This is border: ${border}`);
-	console.log(`This is border classList: ${border.classList}`);
 	border.classList.remove('playing');
-	console.log(`This is border classList: ${border.classList}`);
 }
 
 
@@ -75,11 +70,11 @@ function compareResults(playerSelection, computerSelection) {
 	) {
 	  resultMsg = `You win!! You chose ${playerSelection}, which beats the computer choice, ${computerSelection}.`;
 	  highlightBorder(playerResultBorder);
-	  userResult++;
+	  ++userResult;
 	} else {
 	  resultMsg = `Computer wins!! You chose ${playerSelection}, which loses against the computer choice, ${computerSelection}.`;
 	  highlightBorder(computerResultBorder); 
-	  cpuResult++;
+	  ++cpuResult;
 	}
 	announceRound.textContent = resultMsg;
 	playerResult.textContent = userResult;
@@ -92,12 +87,12 @@ function endGame() {
 	rplContent();
 	if (userResult > cpuResult) {
 		endDesc.textContent = "Congratulations!! You won against the computer!!"
-		returnMainBtn.innerText = "Play again";
+		returnMainBtn.textContent = "Play again";
 		//const audio = new Audio());
 		//audio.play();
 	} else {
 		endDesc.textContent="What a loser! You've lost against the computer";
-		returnMainBtn.innerText = "Try again?";
+		returnMainBtn.textContent = "Try again?";
 		//const audio = new Audio('sounds/Sad-SoundBible.com-759843766.wav');
 		//audio.play();
 	};
@@ -115,6 +110,7 @@ function rplContent() {
 }
 
 function resetGame() {
+	console.log("Am I in!?")
 	userResult = 0;
 	cpuResult = 0;
 	playerResult.textContent = userResult;
