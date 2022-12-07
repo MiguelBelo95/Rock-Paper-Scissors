@@ -84,11 +84,12 @@ footer {
 	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+
+
 #anchor {
 	text-decoration: none;
 	color: white;
 }
-
 
 
 .anounce.round {
@@ -96,6 +97,10 @@ footer {
 	margin: auto;
 	margin-top: 2rem;
 	font-size: 1.25rem;
+}
+
+#round-result {
+	text-align: center;
 }
 
 .result.box {
@@ -107,6 +112,8 @@ footer {
 	margin: 0 0.5rem;
 }
 
+/* Disappear and animate */
+
 .playing {
 	transform: scale(1.1);
 	border-color: green;
@@ -114,7 +121,6 @@ footer {
 }
 
 
-/* Disappear and animate */
 
 .disappear {
 	display: none !important;
