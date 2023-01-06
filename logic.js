@@ -10,8 +10,8 @@ const announceRound = document.getElementById('round-result');
 const playerResultBorder = document.getElementById("result-player-box");
 const computerResultBorder = document.getElementById("result-computer-box");
 
-let userResult = 0;
-let cpuResult = 0;
+let userResult = 4;
+let cpuResult = 4;
 
 playerResult.textContent = userResult;
 computerResult.textContent = cpuResult;
@@ -33,7 +33,6 @@ function playRound() {
 		 setTimeout(() => {compareResults(playerSelection, computerChoice);}, 1000);
 	}
 	if (winner) {
-		console.log("I never enter here, it seems");
 		endGame();
 	}
 }
@@ -75,6 +74,9 @@ function compareResults(playerSelection, computerSelection) {
 	announceRound.textContent = resultMsg;
 	playerResult.textContent = userResult;
 	computerResult.textContent = cpuResult;
+	if(userResult == 5 || cpuResult == 5) {
+		endGame();
+	}
 }
 
 
@@ -82,8 +84,6 @@ function compareResults(playerSelection, computerSelection) {
 
 function highlightBorder(border, classType) {
 	console.log('2.1 HighlightBorder() I should come here first');
-	console.log(border);
-	console.log(classType);
 	border.classList.add(`${classType}`); //(${playing} || ${cpu})
 	setTimeout(() => {removeTransition(border, classType);}, 1000);
 }
@@ -100,8 +100,11 @@ function checkWinner() {
 	return (userResult == 5 || cpuResult == 5);
 }
 
+
+// ENDGAME
+
 function endGame() {
-	rplContent();
+	setTimeout(() => {rplContent();}, 1500);
 	if (userResult > cpuResult) {
 		endDesc.textContent = "Congratulations!! You won against the computer!!"
 		returnMainBtn.textContent = "Play again";
@@ -113,8 +116,6 @@ function endGame() {
 	};
 }
 
-
-// ENDGAME MESSAGE DISPLAY
 
 function rplContent() {
 	main.classList.add("disappear");
