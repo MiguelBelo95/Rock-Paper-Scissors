@@ -10,8 +10,8 @@ const announceRound = document.getElementById('round-result');
 const playerResultBorder = document.getElementById("result-player-box");
 const computerResultBorder = document.getElementById("result-computer-box");
 
-let userResult = 4;
-let cpuResult = 4;
+let userResult = 0;
+let cpuResult = 0;
 
 playerResult.textContent = userResult;
 computerResult.textContent = cpuResult;
@@ -23,11 +23,9 @@ buttons.forEach(button => {
 });
 
 function playRound() {
-	console.log('1. I\´m at the first stage, PlayRound()');
 	const playerSelection = this.id;
 	const computerChoice = getComputerChoice()
 	const winner = checkWinner();
-	console.log(`Winner: ${winner}`);
 
 	if (!winner) {
 		 setTimeout(() => {compareResults(playerSelection, computerChoice);}, 1000);
@@ -38,7 +36,6 @@ function playRound() {
 }
 
 function getComputerChoice() {
-	console.log('2. getComputerChoice()');
 	const possibleChoice = ["rock", "paper", "scissor"];
 	let randomNumber = Math.floor((Math.random() * 10) % 3);
 
@@ -51,7 +48,6 @@ function getComputerChoice() {
 
 
 function compareResults(playerSelection, computerSelection) {
-	console.log('4. I pop when there\´s no winner ');
 	playerSelection = playerSelection.toLowerCase();
 	computerSelection = computerSelection.toLowerCase();
 	let resultMsg = undefined;
@@ -83,20 +79,17 @@ function compareResults(playerSelection, computerSelection) {
 // TRANSITION EFFECTS ON BUTTONS
 
 function highlightBorder(border, classType) {
-	console.log('2.1 HighlightBorder() I should come here first');
 	border.classList.add(`${classType}`); //(${playing} || ${cpu})
 	setTimeout(() => {removeTransition(border, classType);}, 1000);
 }
 
 function removeTransition(border, classType) {
-	console.log('2.2 removeTransition() then disappear');
 	border.classList.remove(`${classType}`);
 }
 
 
 
 function checkWinner() {
-	console.log('3. checkwinner()')
 	return (userResult == 5 || cpuResult == 5);
 }
 
