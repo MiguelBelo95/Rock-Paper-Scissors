@@ -24,20 +24,27 @@ buttons.forEach(button => {
 });
 
 function getComputerChoice() {
+	console.log('2. getComputerChoice()');
 	const possibleChoice = ["rock", "paper", "scissor"];
 	let randomNumber = Math.floor((Math.random() * 10) % 3);
 	let computerChoice = possibleChoice[randomNumber];
+
+	//Aplly choice highlight border
+	const cpuChoiceBtn = document.getElementById(`${computerChoice}`);
+	highlightBorder(cpuChoiceBtn, 'cpu');
+
 	return computerChoice;
 }
 
 function playRound() {
+	console.log('1. I\´m at the first stage, PlayRound()');
 	const playerSelection = this.id;
 	const computerChoice = getComputerChoice();
 	const winner = checkWinner();
 	console.log(`Winner: ${winner}`);
 
 	if (!winner) {
-		 compareResults(playerSelection, computerChoice);
+		 setTimeout(() => {compareResults(playerSelection, computerChoice);}, 1500);
 	}
 	if (winner) {
 		console.log("I never enter here, it seems");
@@ -45,17 +52,22 @@ function playRound() {
 	}
 }
 
-function highlightBorder(border) {
-	border.classList.add("playing");
-	setTimeout(() => {removeTransition(border);}, 500);
+function highlightBorder(border, classType) {
+	console.log('2.1 HighlightBorder() I should come here first');
+	console.log(border);
+	console.log(classType);
+	border.classList.add(`${classType}`); //(${playing} || ${cpu})
+	setTimeout(() => {removeTransition(border, classType);}, 1200);
 }
 
-function removeTransition(border) {
-	border.classList.remove('playing');
+function removeTransition(border, classType) {
+	console.log('2.2 removeTransition() then disappear');
+	border.classList.remove(`${classType}`);
 }
 
 
 function compareResults(playerSelection, computerSelection) {
+	console.log('4. I pop when there\´s no winner ');
 	playerSelection = playerSelection.toLowerCase();
 	computerSelection = computerSelection.toLowerCase();
 	let resultMsg = undefined;
@@ -68,11 +80,11 @@ function compareResults(playerSelection, computerSelection) {
 	  (playerSelection == "scissor" && computerSelection == "paper")
 	) {
 	  resultMsg = `You win!! You chose ${playerSelection}, which beats the computer choice, ${computerSelection}.`;
-	  highlightBorder(playerResultBorder);
+	  highlightBorder(playerResultBorder, "playing");
 	  ++userResult;
 	} else {
 	  resultMsg = `Computer wins!! You chose ${playerSelection}, which loses against the computer choice, ${computerSelection}.`;
-	  highlightBorder(computerResultBorder); 
+	  highlightBorder(computerResultBorder, "playing"); 
 	  ++cpuResult;
 	}
 	announceRound.textContent = resultMsg;
@@ -80,7 +92,9 @@ function compareResults(playerSelection, computerSelection) {
 	computerResult.textContent = cpuResult;
 }
 
-function checkWinner() {return (userResult == 5 || cpuResult == 5);}
+function checkWinner() {
+	console.log('3. checkwinner()')
+	return (userResult == 5 || cpuResult == 5);}
 function endGame() {
 	rplContent();
 	if (userResult > cpuResult) {
