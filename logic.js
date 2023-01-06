@@ -7,7 +7,8 @@ const endAlrt = document.querySelector("#end-alert");
 const endDesc = document.querySelector("#end-desc");
 const returnMainBtn = document.querySelector("#retry-btn");
 const announceRound = document.getElementById('round-result');
-
+const playerResultBorder = document.getElementById("result-player-box");
+const computerResultBorder = document.getElementById("result-computer-box");
 
 let userResult = 0;
 let cpuResult = 0;
@@ -15,36 +16,21 @@ let cpuResult = 0;
 playerResult.textContent = userResult;
 computerResult.textContent = cpuResult;
 
-const playerResultBorder = document.getElementById("result-player-box");
-const computerResultBorder = document.getElementById("result-computer-box");
 
 
 buttons.forEach(button => {
 	button.addEventListener('click', playRound);
 });
 
-function getComputerChoice() {
-	console.log('2. getComputerChoice()');
-	const possibleChoice = ["rock", "paper", "scissor"];
-	let randomNumber = Math.floor((Math.random() * 10) % 3);
-	let computerChoice = possibleChoice[randomNumber];
-
-	//Aplly choice highlight border
-	const cpuChoiceBtn = document.getElementById(`${computerChoice}`);
-	highlightBorder(cpuChoiceBtn, 'cpu');
-
-	return computerChoice;
-}
-
 function playRound() {
 	console.log('1. I\´m at the first stage, PlayRound()');
 	const playerSelection = this.id;
-	const computerChoice = getComputerChoice();
+	const computerChoice = getComputerChoice()
 	const winner = checkWinner();
 	console.log(`Winner: ${winner}`);
 
 	if (!winner) {
-		 setTimeout(() => {compareResults(playerSelection, computerChoice);}, 1500);
+		 setTimeout(() => {compareResults(playerSelection, computerChoice);}, 1000);
 	}
 	if (winner) {
 		console.log("I never enter here, it seems");
@@ -52,17 +38,16 @@ function playRound() {
 	}
 }
 
-function highlightBorder(border, classType) {
-	console.log('2.1 HighlightBorder() I should come here first');
-	console.log(border);
-	console.log(classType);
-	border.classList.add(`${classType}`); //(${playing} || ${cpu})
-	setTimeout(() => {removeTransition(border, classType);}, 1200);
-}
+function getComputerChoice() {
+	console.log('2. getComputerChoice()');
+	const possibleChoice = ["rock", "paper", "scissor"];
+	let randomNumber = Math.floor((Math.random() * 10) % 3);
 
-function removeTransition(border, classType) {
-	console.log('2.2 removeTransition() then disappear');
-	border.classList.remove(`${classType}`);
+	let computerChoice = possibleChoice[randomNumber];
+	//Highlight computerChoice
+	const cpuChoiceBtn = document.getElementById(`${computerChoice}`);
+	setTimeout(() => {highlightBorder(cpuChoiceBtn, 'cpu');}, 500);
+	return computerChoice;
 }
 
 
@@ -92,9 +77,29 @@ function compareResults(playerSelection, computerSelection) {
 	computerResult.textContent = cpuResult;
 }
 
+
+// TRANSITION EFFECTS ON BUTTONS
+
+function highlightBorder(border, classType) {
+	console.log('2.1 HighlightBorder() I should come here first');
+	console.log(border);
+	console.log(classType);
+	border.classList.add(`${classType}`); //(${playing} || ${cpu})
+	setTimeout(() => {removeTransition(border, classType);}, 1000);
+}
+
+function removeTransition(border, classType) {
+	console.log('2.2 removeTransition() then disappear');
+	border.classList.remove(`${classType}`);
+}
+
+
+
 function checkWinner() {
 	console.log('3. checkwinner()')
-	return (userResult == 5 || cpuResult == 5);}
+	return (userResult == 5 || cpuResult == 5);
+}
+
 function endGame() {
 	rplContent();
 	if (userResult > cpuResult) {
@@ -107,6 +112,9 @@ function endGame() {
 		
 	};
 }
+
+
+// ENDGAME MESSAGE DISPLAY
 
 function rplContent() {
 	main.classList.add("disappear");
