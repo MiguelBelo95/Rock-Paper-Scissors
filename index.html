@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./resources/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire|neon|outline">
+    <link rel="stylesheet" href="./resources/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Sofia&effect=fire|neon|outline"
+    />
     <script src="./logic.js" defer></script>
     <title>Document</title>
   </head>
@@ -14,26 +17,35 @@
       <div class="header">
         <h1 class="font-effect-neon">Rock, Paper, Scissors!!</h1>
         <h3>Do you got what it takes to beat the machine?</h3>
-        <p> (best of 5 wins!)</p>
+        <p>(best of 5 wins!)</p>
       </div>
       <div class="game body">
         <div class="item box">
-          <button class="rock btn" id="rock"><img src="./resources/rock.png" alt="rock"/></button>
+          <button class="rock btn" id="rock">
+            <img src="./resources/rock.png" alt="rock" />
+          </button>
         </div>
         <div class="item box">
-          <button class="paper btn" id="paper"><img src="./resources/paper.png" alt="paper"></button>
+          <button class="paper btn" id="paper">
+            <img src="./resources/paper.png" alt="paper" />
+          </button>
         </div>
         <div class="item box">
-          <button class="scissor btn" id="scissor"><img src="./resources/scissors-opened-tool-shape.png" alt="scissors"></button>
+          <button class="scissor btn" id="scissor">
+            <img
+              src="./resources/scissors-opened-tool-shape.png"
+              alt="scissors"
+            />
+          </button>
         </div>
       </div>
       <div class="results body">
         <div id="result-player-box" class="result box">
-          <div class="title"><p>You: </p></div>
+          <div class="title"><p>You:</p></div>
           <div class="player-result"></div>
         </div>
-        <div id="result-computer-box"  class="result box">
-          <div class="title"><p>Computer: </p></div>
+        <div id="result-computer-box" class="result box">
+          <div class="title"><p>Computer:</p></div>
           <div class="computer-result"></div>
         </div>
       </div>
@@ -45,8 +57,15 @@
       <div id="end-desc"></div>
       <button id="retry-btn"></button>
     </div>
-   <footer><a id="anchor" href="https://github.com/MiguelBelo95">Ⓒ MiguelBelo95</a></footer>
+    <footer>
+      <span><script>document.write(new Date().getFullYear())</script></span>
+      <a id="anchor" href="https://github.com/MiguelBelo95">Ⓒ MiguelBelo95</a>
+      <!--
+          Add github emoji. We still need to import some library 
+         <i class="em em-octocat"></i>
+
+          Add Linkedin emoji and make anchor to it as well.
+        -->
+    </footer>
   </body>
 </html>
-
-
