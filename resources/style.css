@@ -92,8 +92,16 @@ footer {
 	text-decoration: none;
 	color: white;
 	padding: 0px 2px;
+	
 }
 
+.fab {
+	transition: transform 0.3s ease-in-out;
+}
+
+.fab:hover {
+	transform: rotate(360deg)scale(1.2);
+}
 
 .anounce.round {
 	width: 60%;
