@@ -21,14 +21,20 @@ html {
 button {
 	border: none;
 	cursor: pointer;
-	transition: 250ms ease-in-out, transform 150ms ease;
+	transition: transform 150ms ease-in-out;
 	background-color: rgba(0,0,0,0);
 }
 
+@keyframes change-color {
+	0% {background-color: rgba(0,0,0,0);}
+	100% {background-color: hsla(305, 31%, 23%, 1);}
+}
+
 button:hover {
-	background-color: hsl(305, 31%, 23%);
 	transform: scale(1.1);
 	box-shadow: 0 0 20px 1px;
+	animation: change-color 1s; /* duration of color change */
+	animation-play-state: running;
 }
 
 button:active {
